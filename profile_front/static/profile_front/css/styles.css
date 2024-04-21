@@ -25,3 +25,38 @@ button{
     height:40px;
     padding: 8px;
 }
+
+header{
+    margin-top:10px;
+    display: flex;
+    justify-content: center;
+}
+
+.Logo, .menu{
+    margin-right: 18px;
+    display: inline-block;
+    line-height: 32px;
+}
+.menu li{
+    margin-right: 18px;
+    display: inline-block;
+    line-height: 32px;
+}
+
+.menu a{
+    font-family:Arial;
+    font-size:19px;
+    color: #001F3F;
+    text-decoration: none;
+    line-height: 32px;
+}
+
+.menu a:hover{
+    color: white
+}
+.Logo h2{
+    font-family: Times;
+    font-size:27px;
+    color: #001F3F;
+    line-height: 30px;
+}

@@ -3,6 +3,14 @@
 {% block title %} <title> Профиль </title> {% endblock %}
 
 {% block content %}
+        <header>
+            <div class="menu">
+                    <ul>
+                        <li><h2>Профиль {{ id }}</h2></li>
+                        <li><a href="{% url 'auth' %}">Выйти</a></li>
+                    </ul>
+            </div>
+        </header>
         <div class="main_notes">
             <h2>INVITE CODE ВАШЕГО АККАУНТА {{ None }}</h2><br><br>
             <form action="{% url 'profile' id %}" method="POST">
