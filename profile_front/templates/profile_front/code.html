@@ -1,0 +1,14 @@
+{% extends 'profile_front/sign_in.html' %}
+
+{% block title %} <title> Подтверждение </title> {% endblock %}
+
+{% block content %}
+        <div class="main_notes">
+            <form action="{% url 'conf_code' %}" method="POST">
+              {% csrf_token %}
+                  <h3>Введите полученный код в формате XXXX</h3><br><br>
+                  <input  type="text" class="number_input" name='phone_number' placeholder="Пример: 2532"/>
+                  <button style="" type="submit" id="">Отправить</button>
+            </form>
+        </div>
+    {% endblock %}
