@@ -3,10 +3,18 @@
 {% block title %} <title> Подтверждение </title> {% endblock %}
 
 {% block content %}
+        <header>
+            <div class="menu">
+                    <ul>
+                        <li><a href="{% url 'auth' %}">Отправить на другой номер телефона</a></li>
+                    </ul>
+            </div>
+        </header>
         <div class="main_notes">
-            <form action="{% url 'conf_code' %}" method="POST">
+            <form action="" method="POST">
               {% csrf_token %}
-                  <h3>Введите полученный код в формате XXXX</h3><br><br>
+                  <h3>Код отправлен по номеру {{ phone_number }}</h3><br><br>
+                  <h3>Введите полученный код в формате XXXX</h3><br>
                   <input  type="text" class="number_input" name='phone_number' placeholder="Пример: 2532"/>
                   <button style="" type="submit" id="">Отправить</button>
             </form>

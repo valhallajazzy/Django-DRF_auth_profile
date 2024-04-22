@@ -5,4 +5,5 @@ profile_api/__pycache__/
 profile_api/migrations/__pycache__/
 profile_front/__pycache__/
 profile_front/migrations/__pycache__/
+.idea/
 
