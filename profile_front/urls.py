@@ -1,8 +1,9 @@
 from django.urls import path, include
-from .views import get_sign_in, get_profile, get_confirm_code
+from .views import sign_in, get_profile, sign_up, logout
 
 urlpatterns = [
-    path('', get_sign_in, name='auth'),
-    path('conf_code/<str:number>', get_confirm_code, name='conf_code'),
-    path('profile/<int:id>', get_profile, name='profile'),
+    path('', sign_in, name='sign_in'),
+    path('sign_up/<str:phone_number>', sign_up, name='conf_code'),
+    path('profile/<str:phone_number>', get_profile, name='profile'),
+    path('logout/<str:phone_number>', logout, name='logout')
 ]

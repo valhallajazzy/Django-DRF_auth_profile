@@ -7,6 +7,6 @@ class User(models.Model):
                                blank=True, null=True, verbose_name='Код авторизации')
     shared_invite_code = models.CharField(max_length=6, unique=True, null=True,
                                           default=None, verbose_name='Код для приглашения друзей')
-    friend_invite_code = models.CharField(max_length=6, unique=True, null=True,
+    friend_invite_code = models.CharField(max_length=6, null=True,
                                           default=None, verbose_name='Пригласительный код друга')
-
+    is_active = models.BooleanField(default=False)

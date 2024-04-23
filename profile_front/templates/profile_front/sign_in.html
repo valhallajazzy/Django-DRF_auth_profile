@@ -12,7 +12,7 @@
 <body>
      {% block content %}
         <div class="main_notes">
-            <form action="{% url 'auth' %}" method="POST">
+            <form action="{% url 'sign_in' %}" method="POST">
               {% csrf_token %}
                   <h2>Авторизация</h2><br><br>
                   <h3>Введите номер телефона в форме +7 (XXX) XXX XX XX</h3><br><br>

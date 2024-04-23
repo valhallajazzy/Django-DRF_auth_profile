@@ -3,21 +3,40 @@
 {% block title %} <title> Профиль </title> {% endblock %}
 
 {% block content %}
+    {% if phone_number %}
         <header>
             <div class="menu">
                     <ul>
-                        <li><h2>Профиль {{ id }}</h2></li>
-                        <li><a href="{% url 'auth' %}">Выйти</a></li>
+                        <li><h2>Профиль {{ phone_number }}</h2></li>
+                        <li><a href="{% url 'logout' phone_number %}">Выйти</a></li>
                     </ul>
             </div>
         </header>
         <div class="main_notes">
-            <h2>INVITE CODE ВАШЕГО АККАУНТА {{ None }}</h2><br><br>
-            <form action="{% url 'profile' id %}" method="POST">
+            <h2>INVITE CODE ВАШЕГО АККАУНТА: {{ shared_invite_code }}</h2><br><br>
+            <h2>INVITE CODE КОТОРЫМ ВЫ ПОЛЬЗОВАЛИСЬ: {% if not friend_invite_code %}НЕ ИСПОЛЬЗОВАН{% else %} {{friend_invite_code}} {% endif %}</h2><br><br>
+            <form action="{% url 'profile' phone_number %}" method="POST">
               {% csrf_token %}
                   <h3>Введите invite код:</h3><br>
-                  <input  type="text" class="number_input" name='phone_number' placeholder="Пример: f4g45K"/>
+                  <input  type="text" class="number_input" name='friend_invite_code' placeholder="Пример: f4g45K"/>
                   <button style="" type="submit" id="">Отправить</button>
             </form>
+            <br><br>
+            <div>
+                <h3>Друзья использовавшие ваш invite код:</h3>
+                {% for invite_friends in who_was_invited %}
+                    <br>{{ invite_friends }}
+                {% endfor %}
+            </div>
         </div>
+    {% else %}
+        <div class="main_notes">
+            <h1>НЕ ДОСТУПА</h1><br>
+            <div class="menu">
+                    <ul>
+                        <li><a href="{% url 'sign_in' %}">Вернуться к авторизации</a></li>
+                    </ul>
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}

@@ -1,12 +1,12 @@
-from django.urls import path
+from django.urls import path, include, re_path
 
-from rest_framework.routers import SimpleRouter
-
-from profile_api.views import PhoneNumberAPIView, SignInAPIView
-
-router = SimpleRouter()
+from profile_api.views import (PhoneNumberAPIView, SignUpAPIView,
+                               InviteCodeAPIView, ProfileAPIView, LogoutAPIView)
 
 urlpatterns = [
-    path("auth/", PhoneNumberAPIView.as_view()),
-    path("sign_in/", SignInAPIView.as_view())
+    path("sign_in/", PhoneNumberAPIView.as_view()),
+    path("sign_up/", SignUpAPIView.as_view()),
+    path("invite_code/", InviteCodeAPIView.as_view()),
+    path("get_profile/", ProfileAPIView.as_view()),
+    path("logout/", LogoutAPIView.as_view()),
 ]
