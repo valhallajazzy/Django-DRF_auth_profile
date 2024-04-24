@@ -1,7 +1,7 @@
 from django.urls import path, include, re_path
 
 from profile_api.views import (PhoneNumberAPIView, SignUpAPIView,
-                               InviteCodeAPIView, ProfileAPIView, LogoutAPIView)
+                               InviteCodeAPIView, ProfileAPIView, LogoutAPIView, GetCodeAPIView)
 
 urlpatterns = [
     path("sign_in/", PhoneNumberAPIView.as_view()),
@@ -9,4 +9,5 @@ urlpatterns = [
     path("invite_code/", InviteCodeAPIView.as_view()),
     path("get_profile/", ProfileAPIView.as_view()),
     path("logout/", LogoutAPIView.as_view()),
+    path("get_users/", GetCodeAPIView.as_view())
 ]

@@ -4,7 +4,7 @@ services:
     image: postgres:latest
     container_name: auth_profile_db
     networks:
-      - auth_profile
+      - referral_app
     env_file:
       - .env
     environment:
@@ -14,5 +14,24 @@ services:
     ports:
       - "5438:5432"
 
+  referral_app:
+    container_name: referral_app
+    build:
+      context: .
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./core:/referral_system/core
+      - ./profile_api:/referral_system/profile_api
+      - ./profile_front:/referral_system/profile_front
+    env_file:
+      - .env
+    command: >
+      sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8002"
+    networks:
+      - referral_app
+    depends_on:
+      - db
+
 networks:
- auth_profile:
+ referral_app:

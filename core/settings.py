@@ -24,12 +24,12 @@ env.read_env()
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-cni-gfx@h#g2w&@mi6@etiu0+a2$)mdx0fv+#_o$ze$fxyzog7'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=["*"])
 
 
 # Application definition
@@ -86,7 +86,7 @@ DATABASES = {
         'NAME': env('DATABASE_NAME'),
         'USER': env('DATABASE_USER'),
         'PASSWORD': env('DATABASE_PASSWORD'),
-        'HOST': env('HOST'),
+        'HOST': env('DATABASE_HOST'),
         'PORT': '5432',
     }
 }

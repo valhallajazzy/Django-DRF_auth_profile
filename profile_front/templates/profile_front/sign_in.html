@@ -6,7 +6,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {% block title %} <title>Авторизация</title> {% endblock %}
+    {% block title %} <title>Авторизация/Регистрация</title> {% endblock %}
     <link rel="stylesheet" href="{% static 'profile_front/css/styles.css'%}" type='text/css'/>
 </head>
 <body>
@@ -14,7 +14,7 @@
         <div class="main_notes">
             <form action="{% url 'sign_in' %}" method="POST">
               {% csrf_token %}
-                  <h2>Авторизация</h2><br><br>
+                  <h2>Авторизация / Регистрация</h2><br><br>
                   <h3>Введите номер телефона в форме +7 (XXX) XXX XX XX</h3><br><br>
                   <input  type="text" class="number_input" name='phone_number' placeholder="Пример: +79093454543"/>
                   <button style="" type="submit" id="">Отправить</button>

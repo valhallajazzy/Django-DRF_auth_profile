@@ -65,3 +65,9 @@ class ActiveStatusSerializer(NumberSerializer):
         if user.first().is_active is False:
             raise serializers.ValidationError("User is not active")
         return super().validate(data)
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = "__all__"
